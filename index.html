@@ -1,51 +1,104 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuhfe & Ege ✨</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: radial-gradient(ellipse at bottom, #1f0c36 0%, #090414 60%, #020106 100%);
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Cinzel Decorative', cursive;
-            color: #fff;
-            position: relative;
-        }
-
-        /* Yıldızlı Gece Gökyüzü */
-        .stars-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Standart Parlayan Yıldızlar */
-        .star {
-            position: absolute;
-            background: #ffffff;
-            border-radius: 50%;
-            animation: twinkle ease-in-out infinite;
-        }
-
-        /* Büyük Işıltılı Yıldızlar (4 Köşeli Parlama Efekti) */
-        .star.bright {
-            background: #fff;
-            box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.9), 0 0 24px 6px rgba(224, 176, 255, 0.6);
-            animation:
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuhfe & Ege</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:radial-gradient(ellipse at bottom,#1f0c36 0%,#090414 60%,#020106 100%);height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;align-items:center;font-family:'Cinzel Decorative',cursive;color:#fff;position:relative}
+.stars{position:absolute;inset:0;pointer-events:none;z-index:1}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle ease-in-out infinite}
+.star.bright{box-shadow:0 0 12px 3px rgba(255,255,255,.9),0 0 24px 6px rgba(224,176,255,.6);animation:brightTwinkle ease-in-out infinite}
+.star.bright::before,.star.bright::after{content:'';position:absolute;top:50%;left:50%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent);transform:translate(-50%,-50%)}
+.star.bright::before{width:22px;height:1.5px}
+.star.bright::after{width:1.5px;height:22px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.95),transparent)}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.4);box-shadow:0 0 10px 2px #fff,0 0 18px #ffb7c5}}
+@keyframes brightTwinkle{0%,100%{opacity:.3;transform:scale(.6) rotate(0deg)}50%{opacity:1;transform:scale(1.3) rotate(45deg)}}
+.shoot{position:absolute;width:140px;height:2px;background:linear-gradient(90deg,#fff,rgba(255,183,197,.4),transparent);opacity:0;filter:drop-shadow(0 0 6px #fff)}
+.s1{top:12%;left:85%;animation:shoot 6s ease-in-out infinite}
+.s2{top:28%;left:95%;animation:shoot 8s ease-in-out 3.5s infinite}
+@keyframes shoot{0%{transform:translate(0,0) rotate(-35deg);opacity:0}5%{opacity:1}18%{transform:translate(-700px,490px) rotate(-35deg);opacity:0}100%{opacity:0}}
+.particle{position:absolute;background:#ffb7c5;border-radius:50%;box-shadow:0 0 10px #ff69b4,0 0 20px #ff1493;animation:floatUp linear infinite;opacity:0;z-index:2}
+@keyframes floatUp{0%{transform:translateY(100vh) scale(0);opacity:0}50%{opacity:.75}100%{transform:translateY(-10vh) scale(1.2);opacity:0}}
+.title-box{position:relative;z-index:10;text-align:center;margin-top:7vh;opacity:0;animation:fadeIn 2s ease-out .8s forwards}
+.name-row{display:flex;align-items:center;justify-content:center;gap:14px}
+.name{font-size:4rem;letter-spacing:9px;background:linear-gradient(45deg,#fff,#ffc8dd,#ff8fab,#fff);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 20px rgba(255,143,171,.5));animation:shine 4s linear infinite}
+.heart{font-size:2.6rem;color:#ff4d6d;filter:drop-shadow(0 0 14px #ff1493);animation:beat 1.5s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.15)}60%{transform:scale(1)}}
+.sub{font-family:'Playfair Display',serif;font-size:1.15rem;color:#e0b0ff;margin-top:8px;letter-spacing:2px;opacity:.9}
+@keyframes shine{to{background-position:200% center}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}
+.sig{position:fixed;bottom:20px;right:25px;z-index:100;font-size:1.15rem;letter-spacing:4px;color:rgba(255,255,255,.85);text-shadow:0 0 12px rgba(255,143,171,.6);opacity:0;animation:fadeIn 2s ease-out 2s forwards}
+.bouquet{position:relative;width:360px;height:380px;z-index:5;display:flex;justify-content:center;align-items:flex-end;margin-bottom:-10px}
+.fl{position:absolute;bottom:0;display:flex;justify-content:center;align-items:flex-end;transform-origin:bottom center}
+.fl.c{z-index:3;height:350px}
+.fl.l{z-index:2;height:290px;transform:translateX(-65px) rotate(-18deg) scale(.82)}
+.fl.r{z-index:2;height:300px;transform:translateX(65px) rotate(18deg) scale(.85)}
+.stem{width:6px;height:0;background:linear-gradient(to top,#1b4332,#40916c);border-radius:3px;box-shadow:0 0 10px rgba(64,145,108,.4)}
+.c .stem{animation:gC 1.8s ease-out forwards}
+.l .stem{animation:gS 1.8s ease-out .3s forwards}
+.r .stem{animation:gS 1.8s ease-out .5s forwards}
+@keyframes gC{to{height:220px}}
+@keyframes gS{to{height:185px}}
+.leaf{position:absolute;bottom:65px;width:65px;height:20px;background:linear-gradient(45deg,#2d6a4f,#52b788);border-radius:0 50px 0 50px;transform-origin:left center;transform:scale(0);animation:gL 1.4s ease-out 1s forwards}
+.leaf.ll{left:50%;transform-origin:right center;border-radius:50px 0 50px 0;margin-left:-65px;bottom:95px;animation:gLL 1.4s ease-out 1.2s forwards}
+@keyframes gL{to{transform:scale(1) rotate(-25deg)}}
+@keyframes gLL{to{transform:scale(1) rotate(25deg)}}
+.head{position:absolute;top:25px;width:210px;height:210px;display:flex;justify-content:center;align-items:center}
+.pt{position:absolute;width:44px;height:108px;background:linear-gradient(to top,#ff4d6d 0%,#ffb3c1 45%,#fff 100%);border-radius:50% 50% 50% 50%/70% 70% 30% 30%;transform-origin:bottom center;bottom:50%;opacity:0;box-shadow:0 0 15px rgba(255,182,193,.5)}
+.pt::after{content:'';position:absolute;bottom:20px;left:50%;transform:translateX(-50%);width:12px;height:30px;background-image:radial-gradient(#800f2f 1.5px,transparent 1.5px);background-size:5px 6px;opacity:.7}
+.c .p1{animation:b1 1.8s ease-out 1.2s forwards}.c .p2{animation:b2 1.8s ease-out 1.3s forwards}.c .p3{animation:b3 1.8s ease-out 1.4s forwards}.c .p4{animation:b4 1.8s ease-out 1.5s forwards}.c .p5{animation:b5 1.8s ease-out 1.6s forwards}.c .p6{animation:b6 1.8s ease-out 1.7s forwards}
+.l .p1{animation:b1 1.8s ease-out 1.6s forwards}.l .p2{animation:b2 1.8s ease-out 1.7s forwards}.l .p3{animation:b3 1.8s ease-out 1.8s forwards}.l .p4{animation:b4 1.8s ease-out 1.9s forwards}.l .p5{animation:b5 1.8s ease-out 2s forwards}.l .p6{animation:b6 1.8s ease-out 2.1s forwards}
+.r .p1{animation:b1 1.8s ease-out 1.8s forwards}.r .p2{animation:b2 1.8s ease-out 1.9s forwards}.r .p3{animation:b3 1.8s ease-out 2s forwards}.r .p4{animation:b4 1.8s ease-out 2.1s forwards}.r .p5{animation:b5 1.8s ease-out 2.2s forwards}.r .p6{animation:b6 1.8s ease-out 2.3s forwards}
+@keyframes b1{0%{transform:rotate(0) scale(0);opacity:0}100%{transform:rotate(0) scale(1);opacity:1}}
+@keyframes b2{0%{transform:rotate(0) scale(0);opacity:0}100%{transform:rotate(60deg) scale(.95);opacity:1}}
+@keyframes b3{0%{transform:rotate(0) scale(0);opacity:0}100%{transform:rotate(120deg) scale(.95);opacity:1}}
+@keyframes b4{0%{transform:rotate(0) scale(0);opacity:0}100%{transform:rotate(180deg) scale(.9);opacity:1}}
+@keyframes b5{0%{transform:rotate(0) scale(0);opacity:0}100%{transform:rotate(240deg) scale(.95);opacity:1}}
+@keyframes b6{0%{transform:rotate(0) scale(0);opacity:0}100%{transform:rotate(300deg) scale(.95);opacity:1}}
+.st{position:absolute;width:3px;height:45px;background:#d8f3dc;bottom:50%;transform-origin:bottom center;opacity:0;animation:sSt 1.5s ease-out 2.4s forwards}
+.st::after{content:'';position:absolute;top:-5px;left:-3.5px;width:10px;height:6px;background:#ffb703;border-radius:50%;box-shadow:0 0 8px #ffb703}
+.st1{transform:rotate(-20deg)}.st2{transform:rotate(0);height:55px}.st3{transform:rotate(20deg)}
+@keyframes sSt{to{opacity:1}}
+@media(max-width:600px){.name{font-size:2.9rem;letter-spacing:5px}.heart{font-size:2.1rem}.sub{font-size:.95rem}.bouquet{transform:scale(.85);transform-origin:bottom center}.sig{font-size:1rem;bottom:15px;right:15px}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars">
+<div class="shoot s1"></div>
+<div class="shoot s2"></div>
+</div>
+<div class="title-box">
+<div class="name-row">
+<div class="name">TUHFE</div>
+<div class="heart">❤️</div>
+</div>
+<div class="sub">Yıldızların altında açan en nadide çiçeğe...</div>
+</div>
+<div class="sig">EGE</div>
+<div class="bouquet">
+<div class="fl l"><div class="stem"></div><div class="leaf ll"></div><div class="head"><div class="pt p1"></div><div class="pt p2"></div><div class="pt p3"></div><div class="pt p4"></div><div class="pt p5"></div><div class="pt p6"></div><div class="st st1"></div><div class="st st2"></div><div class="st st3"></div></div></div>
+<div class="fl c"><div class="stem"></div><div class="leaf"></div><div class="leaf ll"></div><div class="head"><div class="pt p1"></div><div class="pt p2"></div><div class="pt p3"></div><div class="pt p4"></div><div class="pt p5"></div><div class="pt p6"></div><div class="st st1"></div><div class="st st2"></div><div class="st st3"></div></div></div>
+<div class="fl r"><div class="stem"></div><div class="leaf"></div><div class="head"><div class="pt p1"></div><div class="pt p2"></div><div class="pt p3"></div><div class="pt p4"></div><div class="pt p5"></div><div class="pt p6"></div><div class="st st1"></div><div class="st st2"></div><div class="st st3"></div></div></div>
+</div>
+<script>
+const sc=document.getElementById('stars');
+for(let i=0;i<80;i++){
+const s=document.createElement('div');
+if(i%5===0){s.className='star bright';const z=Math.random()*3+2;s.style.width=z+'px';s.style.height=z+'px';s.style.animationDuration=(Math.random()*3+3)+'s'}
+else{s.className='star';const z=Math.random()*2+1;s.style.width=z+'px';s.style.height=z+'px';s.style.animationDuration=(Math.random()*2.5+1.5)+'s'}
+s.style.left=Math.random()*100+'%';s.style.top=Math.random()*85+'%';s.style.animationDelay=Math.random()*4+'s';
+sc.appendChild(s);
+}
+for(let i=0;i<20;i++){
+const p=document.createElement('div');
+p.className='particle';
+const z=Math.random()*4+2;p.style.width=z+'px';p.style.height=z+'px';p.style.left=Math.random()*100+'%';
+p.style.animationDuration=(Math.random()*5+5)+'s';p.style.animationDelay=Math.random()*5+'s';
+document.body.appendChild(p);
+}
+</script>
+</body>
+</html>
